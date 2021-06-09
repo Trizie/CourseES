@@ -22,10 +22,11 @@
  */
 #include "platform.h"
 #include "memory.h"
+#include "course1.h"
 
 
 #ifdef COURSE1
-	course1();
+  course1(void);
 #endif
 
 

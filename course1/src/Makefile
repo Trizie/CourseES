@@ -26,7 +26,7 @@ include sources.mk
 
 PLATFORM = HOST
 
-TARGET = c1m2
+TARGET = c1m4
 
 # Platform Overrides
 ifeq ($(PLATFORM),HOST)
@@ -61,7 +61,7 @@ endif
 
 
 
-CPPFLAGS = -DHOST $(INCLUDES)
+CPPFLAGS = -DHOST -DCOURSE1 $(INCLUDES)
 # -MD -MP -MM
 
 

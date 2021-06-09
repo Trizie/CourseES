@@ -39,14 +39,14 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+int main(void) {
 
 
   /* Other Variable Declarations Go Here */
 
     int n = SIZE;
-    float median, mean;
-    int max, min;
+    //float median, mean;
+    //int max, min;
 
   /* Statistics and Printing Functions Go Here */
     printf("\n");
@@ -65,6 +65,7 @@ void main() {
     printf("\n");
     print_statistics(test, n);
     printf("\n");
+return 0;
 }
 
 /* Add other Implementation File Code Here */

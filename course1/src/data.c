@@ -1,6 +1,6 @@
 /**
  * @file data.c
- * @brief int to ASCII conversion functions
+ * @brief int <---> ASCII conversion functions
  *
  *  
  *
@@ -11,7 +11,10 @@
 
 #include "data.h"
 #include <stdio.h>
-
+#include <stdint.h>
+#include <stdlib.h>
+#include "memory.h"
+#include <stdbool.h>
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
 

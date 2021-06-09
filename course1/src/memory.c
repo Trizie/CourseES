@@ -21,7 +21,8 @@
  *
  */
 #include "memory.h"
-
+#include <stdint.h>
+#include <stdlib.h>
 /***********************************************************
  Function Definitions
 ***********************************************************/
@@ -59,7 +60,7 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
   for(int i = 0; i < length; i++)
     *(dst + i) = *(temp + i);
 
-  delete [] temp; //notwendig?
+ // delete [] temp; //notwendig?
 
   return dst;
 }
@@ -78,7 +79,7 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
 uint8_t * my_memset(uint8_t * src, uint8_t value, size_t length){
 
   *src = malloc(length);
-  src = value;
+  *src = value;
   return src;
 }
 
@@ -100,14 +101,14 @@ uint8_t * my_reverse(uint8_t * src, size_t length){
   }
 	
   *temp = *src;
-  delete [] temp;
+ // delete [] temp;
 
   return src;
 }
 
 int32_t * reserve_words(size_t length){
 
-  char *cptr;
+  int32_t *cptr;
 
   cptr = (char *) malloc (length); //passt char oder muss string sein?, soll malloc(5 * sizeof(char) sein?
 

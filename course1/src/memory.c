@@ -16,8 +16,8 @@
  * writing to memory via function calls. There is also a globally
  * allocated buffer array used for manipulation.
  *
- * @author Alex Fosdick
- * @date April 1 2017
+ * @author 
+ * @date 
  *
  */
 #include "memory.h"
@@ -47,4 +47,77 @@ void set_all(char * ptr, char value, unsigned int size){
 void clear_all(char * ptr, unsigned int size){
   set_all(ptr, 0, size);
 }
+
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
+
+
+  uint8_t * temp;
+
+  for(int i = 0; i < length; i++)
+    *(temp + i) = *(src + i);
+
+  for(int i = 0; i < length; i++)
+    *(dst + i) = *(temp + i);
+
+  delete [] temp; //notwendig?
+
+  return dst;
+}
+
+
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
+
+
+  for(int i = 0; i < length; i++)
+    *(dst + i) = *(src + i);
+
+  return dst;
+}
+
+
+uint8_t * my_memset(uint8_t * src, uint8_t value, size_t length){
+
+  *src = malloc(length);
+  src = value;
+  return src;
+}
+
+uint8_t * my_memzero(uint8_t * src, size_t length){
+
+	//*src = malloc(length); notwendig?
+
+  for(int i = 0; i < length; i++)
+    0 = *(src + i);
+  return src;
+}
+
+uint8_t * my_reverse(uint8_t * src, size_t length){
+
+  uint8_t * temp;
+  for(int j = length; j = 0; j--){
+    for(int i = 0; i < length; i++)
+      *(src + i) = *(temp + j);
+  }
+	
+  *temp = *src;
+  delete [] temp;
+
+  return src;
+}
+
+int32_t * reserve_words(size_t length){
+
+  char *cptr;
+
+  cptr = (char *) malloc (length); //passt char oder muss string sein?, soll malloc(5 * sizeof(char) sein?
+
+  return cptr;
+}
+
+void free_words(int32_t * src){
+
+  free(src);
+
+}
+
 

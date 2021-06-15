@@ -39,16 +39,16 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-int main(void) {
+/*int main(void) {
 
 
-  /* Other Variable Declarations Go Here */
+  // Other Variable Declarations Go Here 
 
     int n = SIZE;
     //float median, mean;
     //int max, min;
 
-  /* Statistics and Printing Functions Go Here */
+  // Statistics and Printing Functions Go Here 
     printf("\n");
 
     printf("The unsorted array: ");
@@ -66,9 +66,9 @@ int main(void) {
     print_statistics(test, n);
     printf("\n");
 return 0;
-}
+}*/
 
-/* Add other Implementation File Code Here */
+/* Add other Implementation File Code Here 
 
 
 void print_statistics(unsigned char *a, int n){
@@ -98,14 +98,14 @@ void print_statistics(unsigned char *a, int n){
 
 }
 
-
+*/
 void print_array(unsigned char *a, int n){
 
     for(int i = 0; i < n; i++)
       printf("%d ", a[i]);
 }
 
-
+/*
 float find_median(unsigned char *a, int n){
    
     float median;
@@ -181,5 +181,5 @@ void sort_array(unsigned char *a, int n)
       }
 }
 
-
+*/
 

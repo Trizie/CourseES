@@ -23,6 +23,7 @@
 #include "memory.h"
 #include <stdint.h>
 #include <stdlib.h>
+#include <inttypes.h>
 /***********************************************************
  Function Definitions
 ***********************************************************/
@@ -52,7 +53,7 @@ void clear_all(char * ptr, unsigned int size){
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
 
 
-  uint8_t * temp;
+  uint8_t * temp = NULL;
 
   for(int i = 0; i < length; i++)
     *(temp + i) = *(src + i);
@@ -78,7 +79,7 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
 
 uint8_t * my_memset(uint8_t * src, uint8_t value, size_t length){
 
-  *src = malloc(length);
+  //*src = malloc(length);
   *src = value;
   return src;
 }
@@ -88,14 +89,14 @@ uint8_t * my_memzero(uint8_t * src, size_t length){
 	//*src = malloc(length); notwendig?
 
   for(int i = 0; i < length; i++)
-    0 = *(src + i);
+    *(src + i) = 0;
   return src;
 }
 
 uint8_t * my_reverse(uint8_t * src, size_t length){
 
-  uint8_t * temp;
-  for(int j = length; j = 0; j--){
+  uint8_t * temp = NULL;
+  for(int j = length; j == 0; j--){
     for(int i = 0; i < length; i++)
       *(src + i) = *(temp + j);
   }
@@ -108,14 +109,12 @@ uint8_t * my_reverse(uint8_t * src, size_t length){
 
 int32_t * reserve_words(size_t length){
 
-  int32_t *cptr;
-
-  cptr = (char *) malloc (length); //passt char oder muss string sein?, soll malloc(5 * sizeof(char) sein?
+  int32_t *cptr = malloc (sizeof(length)); //passt char oder muss string sein?, soll malloc(5 * sizeof(char) sein?
 
   return cptr;
 }
 
-void free_words(int32_t * src){
+void free_words(uint32_t* src){
 
   free(src);
 

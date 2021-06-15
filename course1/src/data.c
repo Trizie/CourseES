@@ -20,12 +20,16 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
 
 	int i = 0;
 	bool isNegative = false;
+	uint8_t result = 0;
+	ptr = 0;
 
 	if(data == 0)
 	{
 		ptr[i++] = '0';
         	ptr[i] = '\0';
-        	return ptr;
+        	*ptr = result;
+  
+    	return result;
     	}
 
 	if (data < 0 && base == 10)
@@ -47,9 +51,10 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
     	ptr[i] = '\0'; //terminator
   
     
-    	reverse(ptr, i);
+    	my_reverse(ptr, i);
+	*ptr = result;
   
-    	return ptr;
+    	return result;
 }
 
 uint8_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
@@ -66,7 +71,7 @@ uint8_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
 		i = i * 10;
 		}
 
-	return res;
+	
 }
-
+	return res;
 }

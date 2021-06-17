@@ -53,13 +53,13 @@ void clear_all(char * ptr, unsigned int size){
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
 
 
-  uint8_t * temp = NULL;
+  uint8_t * temp = 0;
 
   for(int i = 0; i < length; i++)
-    *(temp + i) = *(src + i);
+    temp[i] = src[i];
 
   for(int i = 0; i < length; i++)
-    *(dst + i) = *(temp + i);
+    dst[i] = temp[i];
 
  // delete [] temp; //notwendig?
 
@@ -103,20 +103,21 @@ uint8_t * my_reverse(uint8_t * src, size_t length){
 	
   *temp = *src;
  // delete [] temp;
-
   return src;
 }
 
 int32_t * reserve_words(size_t length){
 
-  int32_t *cptr = malloc (sizeof(length)); //passt char oder muss string sein?, soll malloc(5 * sizeof(char) sein?
+  int32_t* cptr;
+
+  cptr = (int32_t*)malloc(length*sizeof(int32_t)); 
 
   return cptr;
 }
 
 void free_words(uint32_t* src){
 
-  free(src);
+  src = NULL;
 
 }
 

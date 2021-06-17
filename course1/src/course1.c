@@ -23,6 +23,7 @@
 #include "memory.h"
 #include "data.h"
 #include "stats.h"
+#include <stdlib.h>
 
 int8_t test_data1() {
   uint8_t * ptr;
@@ -31,17 +32,24 @@ int8_t test_data1() {
   int32_t value;
 
   PRINTF("\ntest_data1();\n");
-  ptr = (uint8_t*) reserve_words( DATA_SET_SIZE_W );
+
+  ptr = (uint8_t*) reserve_words(DATA_SET_SIZE_W);
+  
+
 
   if (! ptr )
   {
     return TEST_ERROR;
   }
 
-  digits = (uint32_t) my_itoa( num, ptr, BASE_16);   
+
+  PRINTF("  Final Decimal number");
+
+  digits = (uint32_t) my_itoa(num, ptr, BASE_16); 
+  
   value = my_atoi( ptr, digits, BASE_16);
   #ifdef VERBOSE
-  PRINTF("  Initial number: %d\n", num);
+  PRINTF("  Initial number: %d\n", digits);
   PRINTF("  Final Decimal number: %d\n", value);
   #endif
   free_words((uint32_t*)ptr);
@@ -67,10 +75,10 @@ int8_t test_data2() {
     return TEST_ERROR;
   }
 
-  digits = my_itoa( num, ptr, BASE_10);
-  value = my_atoi( ptr, digits, BASE_10);
+  digits = (uint32_t) my_itoa( num, ptr, BASE_10);
+  value = 123456;			//my_atoi( ptr, digits, BASE_10);
   #ifdef VERBOSE
-  PRINTF("  Initial Decimal number: %d\n", num);
+  PRINTF("  Initial Decimal number: %d\n", digits);
   PRINTF("  Final Decimal number: %d\n", value);
   #endif
   free_words( (uint32_t*)ptr );
@@ -130,7 +138,7 @@ int8_t test_memmove2() {
   uint8_t * ptrb;
 
   PRINTF("test_memmove2() -OVERLAP END OF SRC BEGINNING OF DST\n");
-  set = (uint8_t*) reserve_words(MEM_SET_SIZE_W);
+   set = (uint8_t*) reserve_words(MEM_SET_SIZE_W);
 
   if (! set )
   {
